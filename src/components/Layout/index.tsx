@@ -12,7 +12,7 @@ const Layout: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      //setIsloading(false);
+      setIsloading(false);
     }, 1000);
   }, []);
 
@@ -20,9 +20,7 @@ const Layout: React.FC = () => {
     <Container>
       <MobileHeader />
       <DesktopHeader />
-      <span>
-        <AdBanner />
-      </span>
+      <span>{!isLoading && <AdBanner />}</span>
       <main>
         <LeftColumn isLoading={isLoading} />
         <MiddleColumn isLoading={isLoading} />
