@@ -1,5 +1,5 @@
 import React from "react";
-
+import LoadingTrendingPanel from "../Shimmer/LoadingTrendingPanel";
 import TrendingPanel from "./TrendingPanel";
 
 import { Container } from "./styles";
@@ -7,8 +7,14 @@ import { Container } from "./styles";
 const RightColumn: React.FC<LoadingProps> = ({ isLoading }) => {
   return (
     <Container className="right-column">
-      <TrendingPanel />
-      <TrendingPanel />
+      {isLoading ? (
+        <LoadingTrendingPanel />
+      ) : (
+        <>
+          <TrendingPanel />
+          <TrendingPanel />
+        </>
+      )}
     </Container>
   );
 };
